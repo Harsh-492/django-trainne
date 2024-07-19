@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>User Details</title>
+</head>
+<body>
+    <center>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{data.name}}</h5>
+              <b>Phone : </b><p class="card-text">{{data.phone}}</p>
+              <b>Email : </b><p class="card-text">{{data.email}}</p>
+              <b>Salary : </b><p class="card-text">{{data.salary}}</p>
+              <b>Department : </b><p class="card-text">{{data.department}}</p>
+              <a href="{% url 'userdata' %}" class="btn btn-primary">Go To Users List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+</body>
+</html>

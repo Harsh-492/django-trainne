@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+{% block title %}
+  Project List
+{% endblock title %}
+{% block createview %}
+<div class="mb-4">
+    <a href="{% url 'createproject' %}" class="btn btn-primary">New Project</a>
+</div>
+{% endblock createview %}
+{% block listview %}
+    
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Technology</th>
+            <th scope="col">Estimate Hours</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="bg-danger">
+            {% for project in projects %}
+                <tr>   
+                    
+                    <td class="align-middle">{{project.id}}</td>
+                    <td>                    
+                            <a href="{% url 'userdetail' project.id %}" class="link-light">{{ project.title }}</a>
+                            <small class="d-block text-white">{{ project.description }}</small>
+                    </td>
+                    <td class="align-middle">{{project.technology}}</td>
+                    <td class="align-middle">{{project.estimate_hours}}</td>
+                    <td class="align-middle">{{project.start_date}}</td>
+                    <td class="align-middle">{{project.end_date}}</td>
+                    <td class="align-middle"><button type="button" class="btn btn-dark"><a  href="{% url 'updateproject' project.id %}">Update</a></button>
+                        <button type="button" class="btn btn-dark"><a  href="{% url 'deleteproject' project.id %}">Delete</a></button></td>
+                </tr>    
+            {% endfor %}
+          
+        </tbody>
+      </table>
+{% endblock listview %}

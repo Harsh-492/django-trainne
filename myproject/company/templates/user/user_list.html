@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+{% block title %}
+  User List
+{% endblock title %}
+{% block createview %}
+<div class="mb-4">
+    <a href="{% url 'usercreate' %}" class="btn btn-primary">New User</a>
+</div>
+{% endblock createview %}
+{% block listview %}
+    
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="bg-danger">
+            {% for user in user_data %}
+                <tr>   
+                    <td>                    
+                            <a href="{% url 'userdetail' user.id %}" class="link-light">{{ user.name }}</a>
+                            <small class="d-block text-white">{{ user.department }}</small>
+                    </td>
+                    <td class="align-middle">{{user.email}}</td>
+                    <td class="align-middle">{{user.phone}}</td>
+                    <td class="align-middle">{{user.salary}}</td>
+                    <td class="align-middle"><button type="button" class="btn btn-dark"><a  href="{% url 'userupdate' user.id %}">Update</a></button>
+                        <button type="button" class="btn btn-dark"><a  href="{% url 'userdelete' user.id %}">Delete</a></button></td>
+                </tr>    
+            {% endfor %}
+          
+        </tbody>
+      </table>
+{% endblock listview %}
