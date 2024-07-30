@@ -24,3 +24,10 @@ class MyProject(models.Model):
     class Meta:
         db_table = 'myproject'
 
+
+class ProjectModule(models.Model):
+    project = models.ForeignKey(MyProject,on_delete=models.CASCADE,null=True,blank=True)
+    name = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name

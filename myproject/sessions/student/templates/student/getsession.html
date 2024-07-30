@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Session</title>
+</head>
+<body>
+    <h4>Get Session...</h4>
+    {{name}}-{{city}} 
+    {% comment %} <br>{{email}}<br> {% endcomment %}
+    <hr>
+    {{request.session.get_session_cookie_age}} <br>
+    {{request.session.get_expiry_age}}<br>
+    {{request.session.get_expiry_date}}<br>
+    {{request.session.get_expire_at_browser_close}}<br>
+    {% comment %} <p>------------</p>
+    {% for key in request.session.keys %}
+        {{key}} <br>
+    {% endfor %} {% endcomment %}
+    {% comment %} <p>------------</p>
+    <strong>{{mykeys}}</strong> <br> {% endcomment %}
+    {% comment %} {% for key in mykeys %}
+    {{key}} <br>
+    {% endfor %}
+    <p>------------</p>
+    {% for item in myitems  %}
+        {{item}} <br>    
+    {% endfor %} <hr>
+    {% for key,value in myitems %}
+        {{key}}-{{value}} <br>
+    {% endfor %} {% endcomment %}
+</body>
+</html>

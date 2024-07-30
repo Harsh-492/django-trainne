@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import MyUser
 from .forms import UserForm
 # Create your views here.
@@ -10,7 +10,8 @@ def UserListView(request):
 
 
 def UserDetailView(request,pk):
-    user = MyUser.objects.get(id=pk)
+    # user = MyUser.objects.get(id=pk)
+    user = get_object_or_404(MyUser, pk=pk)
     print("user : ",user)
     print("Name : ",user.name)
     print('Emial : ',user.email)

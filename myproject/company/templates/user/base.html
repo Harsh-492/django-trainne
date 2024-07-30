@@ -1,13 +1,16 @@
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8">
     <title>User-{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
   </head>
   <body>
     <div class="container">
       <ol class="breadcrumb my-4">
-        <li class="breadcrumb-item">Users</li>
+        <li class="breadcrumb-item"><a href="{% url "userlist" %}">Users</a></li>
         {% block user %}{% endblock user %}
       </ol>
       {% block createview %}

@@ -20,6 +20,7 @@
         {{ field.label_tag }}
   
         {% if form.is_bound %}
+        <!-- the form has no data (is not bound) -->
           {% if field.errors %}
   
             {% render_field field class="form-control is-invalid" %}
@@ -44,6 +45,6 @@
       </div>
     {% endfor %}
   
-    <button type="submit" class="btn btn-success">Post</button>
+    <button type="submit" class="btn btn-danger">Post</button>
   </form>
 {% endblock createview %}
