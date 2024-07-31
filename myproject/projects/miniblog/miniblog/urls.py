@@ -1,5 +1,5 @@
 """
-URL configuration for mysignal project.
+URL configuration for miniblog project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home
+from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home,name='home')
+    path('',views.home),
+    path('about/',views.about,name='about'),
+    path('contact/',views.contact,name='contact'),
+    path('signup/',views.signup,name='signup'),
+    path('user_login/',views.user_login,name='user_login'),
+    path('dashboard/',views.dashboard,name='dashboard'),
+    path('user_logout/',views.user_logout,name='user_logout'),
+    path('addpost/',views.add_post,name='addpost'),
+    path('updatepost/<int:pk>/',views.update_post,name='updatepost'),
+    path('deletepost/<int:id>/',views.delete_post,name='deletepost'),
 ]
